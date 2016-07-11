@@ -15,6 +15,6 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files`.split($/)
   spec.require_paths = %w(lib vendor)
   
-  spec.add_dependency "railties", ">= 3.2", "< 5.0"
+  spec.add_dependency "railties", ">= 3.2"
   spec.add_dependency 'coffee-rails', ">= 3.2.1"
 end
