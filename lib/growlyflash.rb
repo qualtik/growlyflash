@@ -29,7 +29,7 @@ module Growlyflash
       ActionController::Base.class_eval do
         include XMessageHeaders
         helper NoticeHelpers
-        after_filter :flash_to_headers, if: :is_xhr_request?
+        after_action :flash_to_headers, if: :is_xhr_request?
       end
     end
   end
