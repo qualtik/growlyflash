@@ -51,10 +51,10 @@ do ($ = jQuery) ->
 
   $.bootstrapGrowl.defaults =
     # Width of the box (number or css-like string, etc. "auto")
-    width:       250
+    width:       '95%'
 
     # Auto-dismiss timeout. Set it to 0 if you want to disable auto-dismiss
-    delay:       4000
+    delay:       0
 
     # Spacing between boxes in stack
     spacing:     10
@@ -70,21 +70,24 @@ do ($ = jQuery) ->
 
     # Use the following mapping (Flash key => Bootstrap Alert)
     type_mapping:
-      warning: null
-      error  : 'error'
+      danger : 'danger'
+      error  : 'danger'
+      warning: 'warning'
+      info   : 'info'
       notice : 'info'
       success: 'success'
+      alert: 'warning'
 
     # Horizontal aligning (left, right or center)
-    align:       'right'
+    align:       'center'
 
     # Margin from the closest side
-    alignAmount: 20
+    alignAmount: 5
 
     # Offset from window bounds
     offset:
       from:      'top'
-      amount:    20
+      amount:    55
 
 
   $.bootstrapGrowl.noConflict = ->
