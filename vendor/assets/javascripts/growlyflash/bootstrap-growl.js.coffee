@@ -12,7 +12,9 @@ do ($ = jQuery) ->
     str
 
   $.bootstrapGrowl = (message, options) ->
-    {width, delay, spacing, target, align, alignAmount, dismiss, type, offset} = $.extend({}, $.bootstrapGrowl.defaults, options)
+    {width, delay, spacing, target, align, alignAmount, dismiss, type, offset, danger_flashes} = $.extend({}, $.bootstrapGrowl.defaults, options)
+    # we want danger flahes to not disappear
+    delay = 0 if type in danger_flashes
     width = css_metrics_val width
     alignAmount = css_metrics_val alignAmount
 
@@ -54,7 +56,7 @@ do ($ = jQuery) ->
     width:       '95%'
 
     # Auto-dismiss timeout. Set it to 0 if you want to disable auto-dismiss
-    delay:       0
+    delay:       4000
 
     # Spacing between boxes in stack
     spacing:     10
@@ -73,10 +75,11 @@ do ($ = jQuery) ->
       danger : 'danger'
       error  : 'danger'
       warning: 'warning'
+      alert: 'warning'
       info   : 'info'
       notice : 'info'
       success: 'success'
-      alert: 'warning'
+    danger_flashes: ['danger', 'error', 'warning']
 
     # Horizontal aligning (left, right or center)
     align:       'center'
