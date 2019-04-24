@@ -12,9 +12,9 @@ do ($ = jQuery) ->
     str
 
   $.bootstrapGrowl = (message, options) ->
-    {width, delay, spacing, target, align, alignAmount, dismiss, type, offset, danger_flashes} = $.extend({}, $.bootstrapGrowl.defaults, options)
-    # we want danger flahes to not disappear
-    delay = 0 if type in danger_flashes
+    {width, delay, spacing, target, align, alignAmount, dismiss, type, old_type, offset, permanent_flashes} = $.extend({}, $.bootstrapGrowl.defaults, options)
+    # we want permanent flashes to not disappear
+    delay = 0 if old_type in permanent_flashes
     width = css_metrics_val width
     alignAmount = css_metrics_val alignAmount
 
@@ -79,7 +79,8 @@ do ($ = jQuery) ->
       info   : 'info'
       notice : 'info'
       success: 'success'
-    danger_flashes: ['danger', 'error', 'warning']
+      permanent_success: 'success'
+    permanent_flashes: ['danger', 'error', 'warning', 'permanent_success']
 
     # Horizontal aligning (left, right or center)
     align:       'center'
